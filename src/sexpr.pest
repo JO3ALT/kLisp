@@ -1,0 +1,14 @@
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" | COMMENT }
+COMMENT    = _{ ";" ~ (!"\n" ~ ANY)* }
+
+program    =  { SOI ~ expr* ~ EOI }
+expr       = _{ list | quote | atom }
+
+list       =  { "(" ~ expr* ~ ")" }
+quote      =  { "'" ~ expr }
+
+atom       = _{ number | string | symbol }
+number     = @{ "-"? ~ ASCII_DIGIT+ }
+string     = @{ "\"" ~ ( "\\\"" | (!"\"" ~ ANY) )* ~ "\"" }
+
+symbol     = @{ (ASCII_ALPHANUMERIC | "_" | "+" | "-" | "*" | "/" | "=" | "?" | "!" | "<" | ">" | ":" | ".")+ }

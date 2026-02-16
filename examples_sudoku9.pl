@@ -1,0 +1,263 @@
+% 9x9 Sudoku solver (for current fprolog + prolog-cl pipeline)
+
+digit(1).
+digit(2).
+digit(3).
+digit(4).
+digit(5).
+digit(6).
+digit(7).
+digit(8).
+digit(9).
+
+neq(1,2).
+neq(1,3).
+neq(1,4).
+neq(1,5).
+neq(1,6).
+neq(1,7).
+neq(1,8).
+neq(1,9).
+neq(2,1).
+neq(2,3).
+neq(2,4).
+neq(2,5).
+neq(2,6).
+neq(2,7).
+neq(2,8).
+neq(2,9).
+neq(3,1).
+neq(3,2).
+neq(3,4).
+neq(3,5).
+neq(3,6).
+neq(3,7).
+neq(3,8).
+neq(3,9).
+neq(4,1).
+neq(4,2).
+neq(4,3).
+neq(4,5).
+neq(4,6).
+neq(4,7).
+neq(4,8).
+neq(4,9).
+neq(5,1).
+neq(5,2).
+neq(5,3).
+neq(5,4).
+neq(5,6).
+neq(5,7).
+neq(5,8).
+neq(5,9).
+neq(6,1).
+neq(6,2).
+neq(6,3).
+neq(6,4).
+neq(6,5).
+neq(6,7).
+neq(6,8).
+neq(6,9).
+neq(7,1).
+neq(7,2).
+neq(7,3).
+neq(7,4).
+neq(7,5).
+neq(7,6).
+neq(7,8).
+neq(7,9).
+neq(8,1).
+neq(8,2).
+neq(8,3).
+neq(8,4).
+neq(8,5).
+neq(8,6).
+neq(8,7).
+neq(8,9).
+neq(9,1).
+neq(9,2).
+neq(9,3).
+neq(9,4).
+neq(9,5).
+neq(9,6).
+neq(9,7).
+neq(9,8).
+
+all_diff9(A,B,C,D,E,F,G,H,I) :-
+  neq(A,B),
+  neq(A,C),
+  neq(A,D),
+  neq(A,E),
+  neq(A,F),
+  neq(A,G),
+  neq(A,H),
+  neq(A,I),
+  neq(B,C),
+  neq(B,D),
+  neq(B,E),
+  neq(B,F),
+  neq(B,G),
+  neq(B,H),
+  neq(B,I),
+  neq(C,D),
+  neq(C,E),
+  neq(C,F),
+  neq(C,G),
+  neq(C,H),
+  neq(C,I),
+  neq(D,E),
+  neq(D,F),
+  neq(D,G),
+  neq(D,H),
+  neq(D,I),
+  neq(E,F),
+  neq(E,G),
+  neq(E,H),
+  neq(E,I),
+  neq(F,G),
+  neq(F,H),
+  neq(F,I),
+  neq(G,H),
+  neq(G,I),
+  neq(H,I).
+
+sudoku(
+  C11,C12,C13,C14,C15,C16,C17,C18,C19,
+  C21,C22,C23,C24,C25,C26,C27,C28,C29,
+  C31,C32,C33,C34,C35,C36,C37,C38,C39,
+  C41,C42,C43,C44,C45,C46,C47,C48,C49,
+  C51,C52,C53,C54,C55,C56,C57,C58,C59,
+  C61,C62,C63,C64,C65,C66,C67,C68,C69,
+  C71,C72,C73,C74,C75,C76,C77,C78,C79,
+  C81,C82,C83,C84,C85,C86,C87,C88,C89,
+  C91,C92,C93,C94,C95,C96,C97,C98,C99) :-
+  digit(C11),
+  digit(C12),
+  digit(C13),
+  digit(C14),
+  digit(C15),
+  digit(C16),
+  digit(C17),
+  digit(C18),
+  digit(C19),
+  digit(C21),
+  digit(C22),
+  digit(C23),
+  digit(C24),
+  digit(C25),
+  digit(C26),
+  digit(C27),
+  digit(C28),
+  digit(C29),
+  digit(C31),
+  digit(C32),
+  digit(C33),
+  digit(C34),
+  digit(C35),
+  digit(C36),
+  digit(C37),
+  digit(C38),
+  digit(C39),
+  digit(C41),
+  digit(C42),
+  digit(C43),
+  digit(C44),
+  digit(C45),
+  digit(C46),
+  digit(C47),
+  digit(C48),
+  digit(C49),
+  digit(C51),
+  digit(C52),
+  digit(C53),
+  digit(C54),
+  digit(C55),
+  digit(C56),
+  digit(C57),
+  digit(C58),
+  digit(C59),
+  digit(C61),
+  digit(C62),
+  digit(C63),
+  digit(C64),
+  digit(C65),
+  digit(C66),
+  digit(C67),
+  digit(C68),
+  digit(C69),
+  digit(C71),
+  digit(C72),
+  digit(C73),
+  digit(C74),
+  digit(C75),
+  digit(C76),
+  digit(C77),
+  digit(C78),
+  digit(C79),
+  digit(C81),
+  digit(C82),
+  digit(C83),
+  digit(C84),
+  digit(C85),
+  digit(C86),
+  digit(C87),
+  digit(C88),
+  digit(C89),
+  digit(C91),
+  digit(C92),
+  digit(C93),
+  digit(C94),
+  digit(C95),
+  digit(C96),
+  digit(C97),
+  digit(C98),
+  digit(C99),
+  all_diff9(C11,C12,C13,C14,C15,C16,C17,C18,C19),
+  all_diff9(C21,C22,C23,C24,C25,C26,C27,C28,C29),
+  all_diff9(C31,C32,C33,C34,C35,C36,C37,C38,C39),
+  all_diff9(C41,C42,C43,C44,C45,C46,C47,C48,C49),
+  all_diff9(C51,C52,C53,C54,C55,C56,C57,C58,C59),
+  all_diff9(C61,C62,C63,C64,C65,C66,C67,C68,C69),
+  all_diff9(C71,C72,C73,C74,C75,C76,C77,C78,C79),
+  all_diff9(C81,C82,C83,C84,C85,C86,C87,C88,C89),
+  all_diff9(C91,C92,C93,C94,C95,C96,C97,C98,C99),
+  all_diff9(C11,C21,C31,C41,C51,C61,C71,C81,C91),
+  all_diff9(C12,C22,C32,C42,C52,C62,C72,C82,C92),
+  all_diff9(C13,C23,C33,C43,C53,C63,C73,C83,C93),
+  all_diff9(C14,C24,C34,C44,C54,C64,C74,C84,C94),
+  all_diff9(C15,C25,C35,C45,C55,C65,C75,C85,C95),
+  all_diff9(C16,C26,C36,C46,C56,C66,C76,C86,C96),
+  all_diff9(C17,C27,C37,C47,C57,C67,C77,C87,C97),
+  all_diff9(C18,C28,C38,C48,C58,C68,C78,C88,C98),
+  all_diff9(C19,C29,C39,C49,C59,C69,C79,C89,C99),
+  all_diff9(C11,C12,C13,C21,C22,C23,C31,C32,C33),
+  all_diff9(C14,C15,C16,C24,C25,C26,C34,C35,C36),
+  all_diff9(C17,C18,C19,C27,C28,C29,C37,C38,C39),
+  all_diff9(C41,C42,C43,C51,C52,C53,C61,C62,C63),
+  all_diff9(C44,C45,C46,C54,C55,C56,C64,C65,C66),
+  all_diff9(C47,C48,C49,C57,C58,C59,C67,C68,C69),
+  all_diff9(C71,C72,C73,C81,C82,C83,C91,C92,C93),
+  all_diff9(C74,C75,C76,C84,C85,C86,C94,C95,C96),
+  all_diff9(C77,C78,C79,C87,C88,C89,C97,C98,C99).
+
+% Puzzle (two blanks):
+% 5 . 4 6 7 8 9 1 2
+% 6 7 2 1 9 5 3 4 8
+% 1 9 8 3 4 2 5 6 7
+% 8 5 9 7 6 1 4 2 3
+% 4 2 6 8 5 3 7 9 1
+% 7 1 3 9 2 4 8 5 6
+% 9 6 1 5 3 7 2 8 4
+% 2 8 7 4 1 9 6 3 5
+% 3 4 5 2 8 6 1 . 9
+?- sudoku(
+  5,B12,4,6,7,8,9,1,2,
+  6,7,2,1,9,5,3,4,8,
+  1,9,8,3,4,2,5,6,7,
+  8,5,9,7,6,1,4,2,3,
+  4,2,6,8,5,3,7,9,1,
+  7,1,3,9,2,4,8,5,6,
+  9,6,1,5,3,7,2,8,4,
+  2,8,7,4,1,9,6,3,5,
+  3,4,5,2,8,6,1,B98,9
+).
